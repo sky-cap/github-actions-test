@@ -6,6 +6,9 @@ on:
             debug:
                 type: boolean
                 default: false
+
+run-name: 07 - Using Expressions | DEBUG - ${{ github.event.inputs.debug && github.event.inputs.debug == 'true' && 'ON' || 'OFF' }}
+
 jobs:
     echo:
         runs-on: ubuntu-latest
