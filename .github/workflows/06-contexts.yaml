@@ -1,0 +1,28 @@
+name: 06 - Contexts
+on: 
+  - push
+  - workflow_dispatch
+
+env:
+  MY_WORKFLOW_VAR: workflow
+  MY_OVERWRITTEN_VAR: workflow
+
+jobs:
+  echo-data:
+    runs-on: ubuntu-latest
+    env:
+      MY_JOB_VAR: job
+      MY_OVERWRITTEN_VAR: job
+      MY_VAR: myVar
+    steps:
+      - name: Display Information
+        run: |
+          echo "The event name is ${{ github.event_name }}"
+          echo "The ref is ${{ github.ref }}"
+          echo "SHA is ${{ github.sha }}"
+          echo "Actor is ${{ github.actor }}"
+          echo "Workflow is ${{ github.workflow }}"
+          echo "Run ID is ${{ github.run_id }}"
+          echo "Run Number is ${{ github.run_number }}"
+      - name: Retrieve Variable
+        run: echo "The value of the variable is ${{ env.MY_VAR }}"
