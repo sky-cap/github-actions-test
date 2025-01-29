@@ -1,4 +1,4 @@
-name: 11 - Working with Inputs
+name: 11 - Working with Inputs Yml
 on:
     push:
     workflow_dispatch:
