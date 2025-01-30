@@ -37,7 +37,7 @@ jobs:
             - name: Install Dependencies
               if: steps.cache.outputs.cache-hit != 'true'
               run: npm ci
-              working-directory: 13-using-caching/react-app
+              working-directory: 13-caching/react-app
 
             - name: Testing
               run: npm run test
