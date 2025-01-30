@@ -1,6 +1,5 @@
 name: 11 - Working with Inputs Yaml
 on:
-    push:
     workflow_dispatch:
         inputs:
             dry-run:
