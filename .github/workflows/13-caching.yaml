@@ -27,12 +27,12 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
-                  node-version: '${{ github.event.inputs.node-version }}'
+                  node-version: '${{ inputs.node-version }}'
 
             - name: Download cached dependencies
-              id: cache
-              if: ${{ github.event.inputs.use-cache }}
               uses: actions/cache@v3
+              if: ${{ inputs.use-cache }}
+              id: cache
               with:
                 path: 13-caching/react-app/node_modules
                 key: deps-node-modules-${{ hashFiles('13-caching/react-app/package-lock.json') }}
