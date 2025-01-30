@@ -17,6 +17,9 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: 13-caching/react-app
         steps:
             - name: Checkout Code
               uses: actions/checkout@v4
@@ -36,8 +39,10 @@ jobs:
 
             - name: Install Dependencies
               if: steps.cache.outputs.cache-hit != 'true'
-              run: npm install
-              working-directory: 13-caching/react-app
+              run: npm ci
+
+            - name: Testing
+              run: npm run test
 
             - name: Building
               run: npm run build
